@@ -1,0 +1,364 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stickman Parkour - Free Online Platform Game | yiihee.online</title>
+    <meta name="description" content="Play Stickman Parkour online for free! Master gravity-defying jumps, wall runs, and precision moves in this addictive platform adventure game.">
+    <meta name="keywords" content="stickman parkour, online game, platform game, free games, parkour game, stickman games">
+    <meta name="author" content="yiihee.online">
+    <link rel="canonical" href="https://yiihee.online/stickman-parkour">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Stickman Parkour - Free Online Platform Game">
+    <meta property="og:description" content="Master gravity-defying jumps and precision moves in this addictive stickman parkour adventure">
+    <meta property="og:url" content="https://yiihee.online/stickman-parkour">
+    <meta property="og:type" content="game">
+    <meta property="og:site_name" content="yiihee.online">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Stickman Parkour - Free Online Platform Game">
+    <meta name="twitter:description" content="Master gravity-defying jumps and precision moves in this addictive stickman parkour adventure">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Game",
+        "name": "Stickman Parkour",
+        "description": "Master gravity-defying jumps, wall runs, and precision moves in this addictive platform adventure game",
+        "url": "https://yiihee.online/stickman-parkour",
+        "genre": "Platform Game",
+        "gamePlatform": "Web Browser",
+        "applicationCategory": "Game",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1d1d1f;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #007aff;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #1d1d1f;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #007aff;
+        }
+        
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+        
+        .hero-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: #1d1d1f;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #007aff, #5856d6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-description {
+            font-size: 1.25rem;
+            color: #6e6e73;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Game Container */
+        .game-container {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .game-frame {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 15px;
+            background: #f5f5f7;
+        }
+        
+        /* Content Sections */
+        .content-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-bottom: 20px;
+            border-left: 4px solid #007aff;
+            padding-left: 20px;
+        }
+        
+        .content-section p {
+            font-size: 1.1rem;
+            color: #515154;
+            margin-bottom: 15px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .feature-card {
+            background: #f5f5f7;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 10px;
+        }
+        
+        .feature-card p {
+            font-size: 1rem;
+            color: #6e6e73;
+        }
+        
+        /* Play Button */
+        .play-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #007aff, #5856d6);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 122, 255, 0.3);
+        }
+        
+        .play-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 122, 255, 0.4);
+        }
+        
+        /* Footer */
+        footer {
+            background: #1d1d1f;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .game-frame {
+                height: 400px;
+            }
+            
+            .content-section {
+                padding: 25px;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .game-container {
+                padding: 20px;
+            }
+            
+            .game-frame {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">yiihee.online</a>
+                <nav class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="/games">Games</a>
+                    <a href="/about">About</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="hero-section">
+                <h1>Stickman Parkour</h1>
+                <p class="hero-description">Master gravity-defying jumps, wall runs, and precision moves in this addictive platform adventure game.</p>
+                <a href="#game" class="play-button">Play Now</a>
+            </section>
+
+            <section id="game" class="game-container">
+                <iframe src="https://cloud.onlinegames.io/games/2024/construct/219/stickman-parkour/index-og.html" 
+                        class="game-frame" 
+                        title="Stickman Parkour Game"
+                        allowfullscreen>
+                </iframe>
+            </section>
+
+            <section class="content-section">
+                <h2>About Stickman Parkour</h2>
+                <p>Stickman Parkour is an exhilarating platform game that combines precision jumping, wall-running, and acrobatic moves in a minimalist stick figure world. Navigate through challenging obstacle courses, master the art of parkour, and push your reflexes to the limit.</p>
+                <p>This free-to-play browser game features intuitive controls that are easy to learn but challenging to master. Each level presents unique obstacles and requires different strategies to overcome, making every playthrough an engaging experience.</p>
+            </section>
+
+            <section class="content-section">
+                <h2>Game Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🏃</div>
+                        <h3>Smooth Parkour Movement</h3>
+                        <p>Experience fluid character movement with realistic physics for wall-running, jumping, and sliding.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Challenging Levels</h3>
+                        <p>Navigate through increasingly difficult obstacle courses that test your timing and precision.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Quick Reflexes</h3>
+                        <p>Develop lightning-fast reflexes as you dodge obstacles and make split-second decisions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎮</div>
+                        <h3>Easy Controls</h3>
+                        <p>Simple keyboard controls make the game accessible while maintaining depth for skilled players.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>How to Play</h2>
+                <p>Control your stickman character using keyboard arrows or WASD keys. Jump over obstacles, run up walls, and slide under barriers to reach the finish line. Timing is everything in this fast-paced parkour adventure.</p>
+                <p>The game rewards precision and speed, so practice your moves to achieve the best completion times. Each level introduces new challenges that will test different aspects of your parkour skills.</p>
+            </section>
+
+            <section class="content-section">
+                <h2>Why Play Stickman Parkour?</h2>
+                <p>Stickman Parkour offers the perfect blend of simplicity and challenge. The minimalist graphics focus your attention on the gameplay mechanics, while the progressive difficulty curve ensures you're always engaged. Whether you're looking for a quick gaming session or want to master every level, this game delivers endless entertainment.</p>
+                <p>The game runs smoothly in any modern web browser without requiring downloads or installations. It's perfect for both desktop and mobile play, making it accessible whenever you need a fun gaming break.</p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 yiihee.online - Play the best free online games</p>
+        </div>
+    </footer>
+</body>
+</html>
